@@ -13,4 +13,11 @@ class BlogController extends Controller
             'blogs' => Blog::all()
         ]);
     }
+
+    public function show($blog)
+    {
+        return view('blogs.show', [
+            'blog'=>Blog::where('slug', $blog)->firstOrFail()
+        ]);
+    }
 }

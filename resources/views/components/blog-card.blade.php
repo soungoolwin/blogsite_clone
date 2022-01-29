@@ -26,16 +26,16 @@
                 <div class="card-body">
                     <h3 class="card-title">{{$blog->title}}</h3>
                     <p class="fs-6 text-secondary">
-                        Hlaing Min Than
-                        <span> - 2days ago</span>
+                        {{$blog->author->name}}
+                        <span> - {{$blog->created_at->diffForHumans()}}</span>
                     </p>
                     <div class="tags my-3">
-                        <span class="badge bg-primary">Html</span>
+                        <span class="badge bg-primary">{{$blog->category->name}}</span>
                     </div>
                     <p class="card-text">
                         {{$blog->intro}}
                     </p>
-                    <a href="./single.html" class="btn btn-primary">Read More</a>
+                    <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
