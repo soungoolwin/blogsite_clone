@@ -16,7 +16,7 @@ class BlogFactory extends Factory
     public function definition()
     {
         return [
-            'title'=>$this->faker->title(),
+            'title'=>$this->faker->sentence(),
             'user_id'=>User::factory(),
             'category_id'=>Category::factory(),
             'slug'=>$this->faker->unique()->slug(),

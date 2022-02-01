@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
         $mgmg=User::factory()->create(['name'=>'mgmg','username'=>'mgmg']);
         $kyawkyaw=User::factory()->create(['name'=>'kyaw','username'=>'kyaw']);
-        Blog::factory(5)->create(['category_id'=>$frontend->id,'user_id'=>$mgmg->id]);
-        Blog::factory(5)->create(['category_id'=>$backend->id,'user_id'=>$kyawkyaw->id]);
+        Blog::factory(10)->create(['category_id'=>$frontend->id,'user_id'=>$mgmg->id]);
+        Blog::factory(10)->create(['category_id'=>$backend->id,'user_id'=>$kyawkyaw->id]);
     }
 }
