@@ -21,8 +21,7 @@ class BlogController extends Controller
         
 
         return view('blogs.index', [
-            'blogs' => Blog::latest()->filter(request(['search','category','author']))->paginate(6)->withQueryString(),
-            'categories'=>Category::all()
+            'blogs' => Blog::latest()->filter(request(['search','category','author']))->paginate(6)->withQueryString()
         ]);
     }
 
@@ -31,23 +30,6 @@ class BlogController extends Controller
         return view('blogs.show', [
             'blog'=>$blog,
             'blogyoumaylike'=>Blog::with('author', 'category')->inRandomOrder()->limit(3)->get()
-        ]);
-    }
-
-    public function category(Category $category)
-    {
-        return view('blogs.index', [
-            'blogs'=>$category->blogs,
-            'categories'=>Category::all(),
-            'currentCategory'=>$category
-        ]);
-    }
-
-    public function user(User $user)
-    {
-        return view('blogs.index', [
-            'blogs'=>$user->blogs,
-            'categories'=>Category::all()
         ]);
     }
 }

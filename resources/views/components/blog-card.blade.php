@@ -1,7 +1,7 @@
 @props(['blogs','categories','currentCategory'])
 <section class="container text-center" id="blogs">
     <h1 class="display-5 fw-bold mb-4">Blogs</h1>
-    <x-category-dropdown :categories=$categories :currentCategory=$currentCategory />
+    <x-category-dropdown />
     <form action="/" class="my-3">
         <div class="input-group mb-3">
             <input type="text" name="search" value="{{request('search')??''}}" autocomplete="false" class="form-control"

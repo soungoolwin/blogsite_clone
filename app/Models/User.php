@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast.
      *
@@ -41,5 +41,9 @@ class User extends Authenticatable
     public function blogs()
     {
         return $this->hasMany(Blog::class);
+    }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password']= bcrypt($value);
     }
 }
